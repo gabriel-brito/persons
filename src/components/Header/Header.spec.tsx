@@ -17,18 +17,30 @@ describe('Header', () => {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        padding: 20px;
+        padding: 20px 0;
+      }
+
+      .c1 {
+        margin: 0 auto;
+        max-width: 1280px;
+        padding: 0 20px;
+        width: 100%;
       }
 
       <header
         class="c0"
         data-testid="header"
       >
-        <img
-          alt="Pipedrive logo"
-          class=""
-          src="/assets/svg/logo.svg"
-        />
+        <div
+          class="c1"
+          data-testid="container"
+        >
+          <img
+            alt="Pipedrive logo"
+            class=""
+            src="/assets/svg/logo.svg"
+          />
+        </div>
       </header>
     `)
   })
