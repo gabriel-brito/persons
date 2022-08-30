@@ -1,11 +1,9 @@
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+import Layout from 'components/Layout'
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <Footer />
-    </>
+    <Layout>
+      <h1>Hello World</h1>
+    </Layout>
   )
 }
