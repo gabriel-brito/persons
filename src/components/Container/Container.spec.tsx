@@ -52,6 +52,9 @@ describe('Container', () => {
       </Container>
     )
 
-    expect(screen.getByTestId('container')).toHaveStyleRule({ maxWidth: 1280 })
+    expect(screen.getByTestId('container')).toHaveStyleRule(
+      'max-width',
+      '1280px'
+    )
   })
 })
