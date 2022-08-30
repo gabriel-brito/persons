@@ -7,4 +7,4 @@ export const Header = styled.header`
   padding: 20px;
 `
 
-export const logo = styled.img``
+export const Logo = styled.img``
