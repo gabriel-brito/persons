@@ -1,9 +1,10 @@
 import Layout from 'components/Layout'
+import SearchInput from 'components/SearchInput'
 
 export default function App() {
   return (
     <Layout>
-      <h1>Hello World</h1>
+      <SearchInput />
     </Layout>
   )
 }

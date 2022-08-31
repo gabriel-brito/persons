@@ -1,8 +1,8 @@
 import * as S from 'components/Container/styles'
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 
 type ContainerTypes = {
-  children: ReactElement
+  children: ReactNode
 }
 
 export default function Container({ children }: ContainerTypes) {

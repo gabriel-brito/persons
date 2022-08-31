@@ -1,18 +1,17 @@
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 
 import Header from 'components/Header'
-import Container from 'components/Container'
 import Footer from 'components/Footer'
 
 type LayoutTypes = {
-  children: ReactElement
+  children: ReactNode
 }
 
 export default function Layout({ children }: LayoutTypes) {
   return (
     <>
       <Header />
-      <Container>{children}</Container>
+      {children}
       <Footer />
     </>
   )
