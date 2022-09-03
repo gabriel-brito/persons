@@ -52,15 +52,19 @@ export default function PersonModal({
       </S.ProfileWrapper>
 
       <S.InfoWrapper>
-        <S.InfoRow>
-          <S.InfoTitle>Email</S.InfoTitle>
-          <S.InfoContent>{email}</S.InfoContent>
-        </S.InfoRow>
+        {email && (
+          <S.InfoRow>
+            <S.InfoTitle>Email</S.InfoTitle>
+            <S.InfoContent>{email}</S.InfoContent>
+          </S.InfoRow>
+        )}
 
-        <S.InfoRow>
-          <S.InfoTitle>Organization</S.InfoTitle>
-          <S.InfoContent>{company}</S.InfoContent>
-        </S.InfoRow>
+        {company && (
+          <S.InfoRow>
+            <S.InfoTitle>Organization</S.InfoTitle>
+            <S.InfoContent>{company}</S.InfoContent>
+          </S.InfoRow>
+        )}
       </S.InfoWrapper>
     </BaseModal>
   )
