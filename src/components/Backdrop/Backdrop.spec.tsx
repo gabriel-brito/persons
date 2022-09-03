@@ -6,7 +6,7 @@ const MockTitle = () => <h1>Hello world</h1>
 
 describe('Backdrop', () => {
   it('should render correctly', () => {
-    const { container } = render(
+    render(
       <Backdrop>
         <MockTitle />
       </Backdrop>
@@ -16,7 +16,7 @@ describe('Backdrop', () => {
       screen.getByRole('heading', { name: /hello world/i })
     ).toBeInTheDocument()
 
-    expect(container.firstChild).toMatchInlineSnapshot(`
+    expect(screen.getByTestId('backdrop')).toMatchInlineSnapshot(`
       .c0 {
         -webkit-align-items: center;
         -webkit-box-align: center;
@@ -42,6 +42,7 @@ describe('Backdrop', () => {
 
       <div
         class="c0"
+        data-testid="backdrop"
       >
         <h1>
           Hello world

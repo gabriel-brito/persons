@@ -6,5 +6,5 @@ type BackdropTypes = {
 }
 
 export default function Backdrop({ children }: BackdropTypes) {
-  return <S.Backdrop>{children}</S.Backdrop>
+  return <S.Backdrop data-testid="backdrop">{children}</S.Backdrop>
 }

@@ -8,7 +8,7 @@ type LoaderTypes = {
 export default function Loader({ showLoader = false }: LoaderTypes) {
   return showLoader ? (
     <Backdrop>
-      <S.Loader />
+      <S.Loader data-testid="loader" />
     </Backdrop>
   ) : null
 }
