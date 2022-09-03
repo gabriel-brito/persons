@@ -1,17 +1,18 @@
-import { useState, useEffect, ChangeEvent } from 'react'
+import { useState, useEffect, ChangeEvent, lazy, Suspense } from 'react'
 import Debounce from 'lodash.debounce'
 
 import Layout from 'components/Layout'
-import SearchInput from 'components/SearchInput'
-import PeoplesList from 'components/PeoplesList'
 import Loader from 'components/Loader'
 
 import { getAllPersons, searchForPersons } from 'services/personServices'
 import { transformToListItem } from 'utils/persons'
 
+const SearchInput = lazy(() => import('components/SearchInput'))
+const PeoplesList = lazy(() => import('components/PeoplesList'))
+
 export default function App() {
   const [persons, setPersons] = useState([])
-  const [showLoader, setShowLoader] = useState(false)
+  const [showLoader, setShowLoader] = useState(true)
   const [isFromFilter, SetIsFromFilter] = useState(false)
 
   const generalRequest = async () => {
@@ -55,12 +56,14 @@ export default function App() {
 
   return (
     <Layout>
-      <SearchInput handleFilter={handleFilter} />
-      <PeoplesList
-        generalRequest={generalRequest}
-        persons={persons}
-        isFromFilter={isFromFilter}
-      />
+      <Suspense fallback={<Loader showLoader={showLoader} />}>
+        <SearchInput handleFilter={handleFilter} />
+        <PeoplesList
+          generalRequest={generalRequest}
+          persons={persons}
+          isFromFilter={isFromFilter}
+        />
+      </Suspense>
 
       <Loader showLoader={showLoader} />
     </Layout>
