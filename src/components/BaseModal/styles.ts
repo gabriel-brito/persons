@@ -4,7 +4,7 @@ export const Modal = styled.div`
   background-color: white;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.24);
   color: initial;
-  max-width: 500px;
+  max-width: 420px;
   width: 100%;
 `
 
