@@ -87,7 +87,7 @@ export default function PeoplesList({
       <Container>
         <S.List>
           {persons.length === 0 ? (
-            <h1>Loading...</h1>
+            <S.Loading>Loading...</S.Loading>
           ) : (
             persons.map((data, index) => {
               const { name, org_name: company, picture_id } = data

@@ -10,3 +10,7 @@ export const ListItem = styled.li`
   list-style: none;
   margin-bottom: 10px;
 `
+
+export const Loading = styled.h4`
+  font-weight: 600;
+`

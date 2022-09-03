@@ -7,6 +7,7 @@ import PeoplesList from 'components/PeoplesList'
 import Loader from 'components/Loader'
 
 import { getAllPersons, searchForPersons } from 'services/personServices'
+import { transformToListItem } from 'utils/persons'
 
 export default function App() {
   const [persons, setPersons] = useState([])
@@ -26,7 +27,7 @@ export default function App() {
 
     const response = await searchForPersons(value)
 
-    setPersons(response.data.items)
+    setPersons(transformToListItem(response.data.items))
   }
 
   const handleFilter = Debounce(filterByTyping, 500)
@@ -38,7 +39,7 @@ export default function App() {
   return (
     <Layout>
       <SearchInput handleFilter={handleFilter} />
-      <PeoplesList persons={persons} generalRequest={generalRequest} />
+      <PeoplesList generalRequest={generalRequest} persons={persons} />
 
       <Loader showLoader={showLoader} />
     </Layout>
