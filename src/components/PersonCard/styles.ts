@@ -33,27 +33,3 @@ export const Company = styled.h3`
     margin-right: 5px;
   }
 `
-
-export const ProfileWrapper = styled.div`
-  border-radius: 50%;
-  height: 60px;
-  overflow: hidden;
-  width: 60px;
-`
-
-export const Avatar = styled.img`
-  display: block;
-  height: 100%;
-  width: 100%;
-`
-
-export const AvatarPlaceholder = styled.span`
-  align-items: center;
-  background-color: aliceblue;
-  color: blue;
-  display: flex;
-  font-size: 1.3rem;
-  height: 60px;
-  justify-content: center;
-  width: 60px;
-`

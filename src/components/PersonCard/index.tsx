@@ -1,4 +1,5 @@
 import { BiBuildings as BuildingsIcon } from 'react-icons/bi'
+import ProfilePicture from 'components/ProfilePicture'
 import * as S from 'components/PersonCard/styles'
 
 type PersonCardTypes = {
@@ -23,15 +24,7 @@ export default function PersonCard({
         </S.Company>
       </S.InfoWrapper>
 
-      <S.ProfileWrapper>
-        {picture ? (
-          <S.Avatar src={picture} alt={`${name} Profile Picture`} />
-        ) : (
-          <S.AvatarPlaceholder data-testid="placeholder">
-            {name.charAt(0)}
-          </S.AvatarPlaceholder>
-        )}
-      </S.ProfileWrapper>
+      <ProfilePicture name={name} picture={picture} />
     </S.PersonCard>
   )
 }
