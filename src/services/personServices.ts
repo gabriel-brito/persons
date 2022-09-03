@@ -15,3 +15,17 @@ export const getAllPersons = async () => {
     console.log(error)
   }
 }
+
+export const deletePerson = async (id: number) => {
+  try {
+    const response: any = await axiosConfig.delete(`persons/${id}`, {
+      params: {
+        api_token: API_KEY
+      }
+    })
+
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}

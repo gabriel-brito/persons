@@ -11,21 +11,21 @@ export default function App() {
   const [persons, setPersons] = useState<any[]>([])
   const [showLoader, setShowLoader] = useState<boolean>(true)
 
+  const generalRequest = async () => {
+    const response = await getAllPersons()
+
+    setPersons(response.data)
+    setShowLoader(false)
+  }
+
   useEffect(() => {
-    const initialRequest = async () => {
-      const response = await getAllPersons()
-
-      setPersons(response.data)
-      setShowLoader(false)
-    }
-
-    initialRequest()
+    generalRequest()
   }, [])
 
   return (
     <Layout>
       <SearchInput />
-      <PeoplesList persons={persons} />
+      <PeoplesList persons={persons} generalRequest={generalRequest} />
 
       <Loader showLoader={showLoader} />
     </Layout>

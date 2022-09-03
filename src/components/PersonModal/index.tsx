@@ -7,18 +7,21 @@ import { SelectedUserTypes } from 'components/PeoplesList'
 
 type PersonModalTypes = {
   closeModal: Dispatch<SetStateAction<boolean>>
+  deleteUser: (id: number) => Promise<void>
   selectedUser: SelectedUserTypes | any
   showModal: boolean
 }
 
 export default function PersonModal({
   closeModal,
+  deleteUser,
   selectedUser,
   showModal
 }: PersonModalTypes) {
   const { company, email, name, phone, picture } = selectedUser
   const hasPhone = phone && phone.length > 0
   const handleCloseModal = () => closeModal(false)
+  const handleDeleteUser = () => deleteUser(selectedUser.id)
 
   return (
     <BaseModal
@@ -29,7 +32,12 @@ export default function PersonModal({
       footerContent={
         <S.Footer>
           <S.FooterWrapper>
-            <S.DeleteButton aria-label="delete-person">Delete</S.DeleteButton>
+            <S.DeleteButton
+              aria-label="delete-person"
+              onClick={handleDeleteUser}
+            >
+              Delete
+            </S.DeleteButton>
             <S.BaseButton aria-label="close-modal" onClick={handleCloseModal}>
               Back
             </S.BaseButton>

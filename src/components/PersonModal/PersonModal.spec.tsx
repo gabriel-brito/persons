@@ -13,6 +13,7 @@ const mock = {
       'https://i.pinimg.com/736x/e6/92/d5/e692d5b339965562babfe6b0b349d278.jpg'
   },
   closeModal: jest.fn(),
+  deleteUser: jest.fn(),
   showModal: true
 }
 
