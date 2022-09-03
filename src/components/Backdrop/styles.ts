@@ -12,4 +12,8 @@ export const Backdrop = styled.div`
   right: 0;
   top: 0;
   z-index: 1201;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
 `

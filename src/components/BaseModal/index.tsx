@@ -6,6 +6,8 @@ import * as S from 'components/BaseModal/styles'
 
 type BaseModalTypes = {
   children: ReactNode
+  footerContent?: ReactNode
+  hasFooter?: boolean
   closeModal: (state: boolean) => void
   showModal: boolean
   title: string
@@ -13,6 +15,8 @@ type BaseModalTypes = {
 
 export default function BaseModal({
   children,
+  footerContent,
+  hasFooter = false,
   showModal,
   title,
   closeModal
@@ -33,6 +37,8 @@ export default function BaseModal({
         </S.Header>
 
         <S.Content>{children}</S.Content>
+
+        {hasFooter && <>{footerContent}</>}
       </S.Modal>
     </Backdrop>
   ) : null

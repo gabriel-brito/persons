@@ -17,6 +17,10 @@ describe('Loader', () => {
         width: 60px;
       }
 
+      @media (max-width:600px) {
+
+      }
+
       <div
         class="c0"
         data-testid="loader"

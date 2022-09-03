@@ -40,6 +40,12 @@ describe('Backdrop', () => {
         z-index: 1201;
       }
 
+      @media (max-width:600px) {
+        .c0 {
+          padding: 0 20px;
+        }
+      }
+
       <div
         class="c0"
         data-testid="backdrop"
