@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Container from 'components/Container'
 import PersonCard from 'components/PersonCard'
+import PersonModal from 'components/PersonModal'
 
 import * as S from 'components/PeoplesList/styles'
 
@@ -9,13 +10,28 @@ type PeoplesListType = {
   persons?: any[]
 }
 
+export type SelectedUserTypes = {
+  company: string
+  email: string
+  name: string
+  phone?: { value: string }[]
+  picture?: string
+}
+
 export default function PeoplesList({ persons = [] }: PeoplesListType) {
-  const [selectedUser, setSelectedUser] = useState<Object>({})
+  const [selectedUser, setSelectedUser] = useState<SelectedUserTypes | {}>({})
   const [openModal, setOpenModal] = useState<boolean>(false)
 
   const handlePersonModal = (data: any) => {
-    const { id, name, picture_id: picture, phone, primary_email: email } = data
-    setSelectedUser({ id, name, picture, phone, email })
+    const {
+      id,
+      name,
+      picture_id: picture,
+      phone,
+      primary_email: email,
+      org_name: company
+    } = data
+    setSelectedUser({ id, name, picture, phone, email, company })
     setOpenModal(true)
   }
 
@@ -43,6 +59,12 @@ export default function PeoplesList({ persons = [] }: PeoplesListType) {
             })
           )}
         </S.List>
+
+        <PersonModal
+          showModal={openModal}
+          closeModal={setOpenModal}
+          selectedUser={selectedUser}
+        />
       </Container>
     </S.Wrapper>
   )
