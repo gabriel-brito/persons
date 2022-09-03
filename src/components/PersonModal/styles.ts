@@ -46,6 +46,7 @@ export const InfoTitle = styled.p`
 
 export const InfoContent = styled.p`
   color: #656e7a;
+  text-align: left;
 `
 
 export const Footer = styled.header`

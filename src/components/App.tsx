@@ -11,9 +11,12 @@ import { transformToListItem } from 'utils/persons'
 
 export default function App() {
   const [persons, setPersons] = useState([])
-  const [showLoader, setShowLoader] = useState(true)
+  const [showLoader, setShowLoader] = useState(false)
+  const [isFromFilter, SetIsFromFilter] = useState(false)
 
   const generalRequest = async () => {
+    setShowLoader(true)
+    SetIsFromFilter(false)
     const response = await getAllPersons()
 
     setPersons(response.data)
@@ -21,13 +24,27 @@ export default function App() {
   }
 
   const filterByTyping = async (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value
+    const value = event.target.value.trim()
 
-    if (!value || value.length < 2) return
+    if (!value) {
+      generalRequest()
+
+      return
+    }
+
+    if (value.length < 2) {
+      generalRequest()
+
+      return
+    }
+
+    SetIsFromFilter(true)
+    setShowLoader(true)
 
     const response = await searchForPersons(value)
 
     setPersons(transformToListItem(response.data.items))
+    setShowLoader(false)
   }
 
   const handleFilter = Debounce(filterByTyping, 500)
@@ -39,7 +56,11 @@ export default function App() {
   return (
     <Layout>
       <SearchInput handleFilter={handleFilter} />
-      <PeoplesList generalRequest={generalRequest} persons={persons} />
+      <PeoplesList
+        generalRequest={generalRequest}
+        persons={persons}
+        isFromFilter={isFromFilter}
+      />
 
       <Loader showLoader={showLoader} />
     </Layout>

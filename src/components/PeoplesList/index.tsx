@@ -13,6 +13,7 @@ import { deletePerson } from 'services/personServices'
 type PeoplesListType = {
   persons?: any[]
   generalRequest: () => Promise<void>
+  isFromFilter: boolean
 }
 
 export type SelectedUserTypes = {
@@ -25,8 +26,9 @@ export type SelectedUserTypes = {
 }
 
 export default function PeoplesList({
-  persons = [],
-  generalRequest
+  generalRequest,
+  isFromFilter = false,
+  persons = []
 }: PeoplesListType) {
   const [selectedUser, setSelectedUser] = useState<SelectedUserTypes | {}>({})
   const [openModal, setOpenModal] = useState(false)
@@ -87,7 +89,9 @@ export default function PeoplesList({
       <Container>
         <S.List>
           {persons.length === 0 ? (
-            <S.Loading>Loading...</S.Loading>
+            <S.Loading>
+              {isFromFilter ? 'Nothing was found.' : 'Loading...'}
+            </S.Loading>
           ) : (
             persons.map((data, index) => {
               const { name, org_name: company, picture_id } = data
