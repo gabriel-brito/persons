@@ -4,9 +4,11 @@ import 'jest-styled-components'
 
 import SearchInput from 'components/SearchInput'
 
+const handleFilter = jest.fn()
+
 describe('Container', () => {
   it(`should have a heading with People's List text on it and have right styles`, () => {
-    render(<SearchInput />)
+    render(<SearchInput handleFilter={handleFilter} />)
 
     const heading = screen.getByRole('heading', { name: /people's list/i })
 
@@ -14,7 +16,7 @@ describe('Container', () => {
   })
 
   it(`should have the search input and it should match inline snapshot`, () => {
-    render(<SearchInput />)
+    render(<SearchInput handleFilter={handleFilter} />)
 
     expect(screen.getByLabelText('Search input')).toBeInTheDocument()
     expect(screen.getByLabelText('Search input')).toMatchInlineSnapshot(`
@@ -55,7 +57,7 @@ describe('Container', () => {
   })
 
   it(`should change the background position and padding on click`, () => {
-    render(<SearchInput />)
+    render(<SearchInput handleFilter={handleFilter} />)
     const input = screen.getByLabelText('Search input')
 
     UserEvent.tab()

@@ -16,6 +16,23 @@ export const getAllPersons = async () => {
   }
 }
 
+export const searchForPersons = async (term: string) => {
+  try {
+    const response: any = await axiosConfig.get('persons/search', {
+      params: {
+        api_token: API_KEY,
+        limit: 10,
+        include_fields: 'person.picture',
+        term
+      }
+    })
+
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const deletePerson = async (id: number) => {
   try {
     const response: any = await axiosConfig.delete(`persons/${id}`, {
