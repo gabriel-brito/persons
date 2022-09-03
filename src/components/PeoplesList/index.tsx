@@ -1,12 +1,24 @@
-import * as S from 'components/PeoplesList/styles'
+import { useState } from 'react'
+
 import Container from 'components/Container'
 import PersonCard from 'components/PersonCard'
+
+import * as S from 'components/PeoplesList/styles'
 
 type PeoplesListType = {
   persons?: any[]
 }
 
 export default function PeoplesList({ persons = [] }: PeoplesListType) {
+  const [selectedUser, setSelectedUser] = useState<Object>({})
+  const [openModal, setOpenModal] = useState<boolean>(false)
+
+  const handlePersonModal = (data: any) => {
+    const { id, name, picture_id: picture, phone, primary_email: email } = data
+    setSelectedUser({ id, name, picture, phone, email })
+    setOpenModal(true)
+  }
+
   return (
     <S.Wrapper>
       <Container>
@@ -24,7 +36,7 @@ export default function PeoplesList({ persons = [] }: PeoplesListType) {
                     name={name}
                     company={company}
                     picture={picture}
-                    handler={() => console.log('here')}
+                    handler={() => handlePersonModal(data)}
                   />
                 </S.ListItem>
               )
