@@ -5,19 +5,21 @@ import Backdrop from 'components/Backdrop'
 import * as S from 'components/BaseModal/styles'
 
 type BaseModalTypes = {
-  title: string
   children: ReactNode
   closeModal: (state: boolean) => void
+  showModal: boolean
+  title: string
 }
 
 export default function BaseModal({
-  title,
   children,
+  showModal,
+  title,
   closeModal
 }: BaseModalTypes) {
   const handleCloseModal = () => closeModal(false)
 
-  return (
+  return showModal ? (
     <Backdrop>
       <S.Modal data-testid="base-modal">
         <S.Header>
@@ -33,5 +35,5 @@ export default function BaseModal({
         <S.Content>{children}</S.Content>
       </S.Modal>
     </Backdrop>
-  )
+  ) : null
 }

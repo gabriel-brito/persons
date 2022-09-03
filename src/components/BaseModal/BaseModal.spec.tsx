@@ -6,7 +6,11 @@ import BaseModal from 'components/BaseModal'
 describe('BaseModal', () => {
   it('should match snapshot', () => {
     render(
-      <BaseModal title="Base modal title">
+      <BaseModal
+        showModal={true}
+        closeModal={() => {}}
+        title="Base modal title"
+      >
         <h1>Hello World</h1>
       </BaseModal>
     )
@@ -27,20 +31,29 @@ describe('BaseModal', () => {
       showModal = value
     }
 
-    const Modal = () =>
-      showModal ? (
-        <BaseModal closeModal={handleModalVisibility} title="Base modal title">
-          <h1>Hello World</h1>
-        </BaseModal>
-      ) : null
-
-    const { rerender } = render(<Modal />)
+    const { rerender } = render(
+      <BaseModal
+        showModal={showModal}
+        closeModal={handleModalVisibility}
+        title="Base modal title"
+      >
+        <h1>Hello World</h1>
+      </BaseModal>
+    )
 
     expect(screen.getByTestId('base-modal')).toBeInTheDocument()
 
     UserEvent.click(screen.getByLabelText('close'))
 
-    rerender(<Modal />)
+    rerender(
+      <BaseModal
+        showModal={showModal}
+        closeModal={handleModalVisibility}
+        title="Base modal title"
+      >
+        <h1>Hello World</h1>
+      </BaseModal>
+    )
 
     expect(showModal).toStrictEqual(false)
 
