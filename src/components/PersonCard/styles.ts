@@ -26,12 +26,12 @@ export const Company = styled.h3`
   display: flex;
   font-size: 0.9rem;
   font-weight: 400;
-`
 
-export const CompanyIcon = styled.img`
-  color: #656e7a;
-  margin-right: 4px;
-  width: 18px;
+  & > svg {
+    fill: black;
+    font-size: 16px;
+    margin-right: 5px;
+  }
 `
 
 export const ProfileWrapper = styled.div`

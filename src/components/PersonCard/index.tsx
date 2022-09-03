@@ -1,3 +1,4 @@
+import { BiBuildings as BuildingsIcon } from 'react-icons/bi'
 import * as S from 'components/PersonCard/styles'
 
 type PersonCardTypes = {
@@ -18,11 +19,7 @@ export default function PersonCard({
       <S.InfoWrapper>
         <S.Name>{name}</S.Name>
         <S.Company>
-          <S.CompanyIcon
-            src="assets/svg/buildings-icon.svg"
-            alt="Icon for buildings"
-          />{' '}
-          {company}
+          <BuildingsIcon /> {company}
         </S.Company>
       </S.InfoWrapper>
 
