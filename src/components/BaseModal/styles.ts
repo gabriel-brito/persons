@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Modal = styled.div`
   background-color: white;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.24);
   color: initial;
   max-width: 500px;
   width: 100%;
@@ -27,6 +28,7 @@ export const CloseButton = styled.button`
   align-items: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   display: flex;
   padding: 0;
 

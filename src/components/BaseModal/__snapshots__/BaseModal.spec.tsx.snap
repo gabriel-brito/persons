@@ -3,6 +3,7 @@
 exports[`BaseModal should match snapshot 1`] = `
 .c0 {
   background-color: white;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.24);
   color: initial;
   max-width: 500px;
   width: 100%;
@@ -40,6 +41,7 @@ exports[`BaseModal should match snapshot 1`] = `
   align-items: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
