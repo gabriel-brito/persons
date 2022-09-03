@@ -27,7 +27,7 @@ describe('BaseModal', () => {
   it('should close modal when function is triggered', () => {
     let showModal: boolean = true
 
-    const handleModalVisibility = (value) => {
+    const handleModalVisibility = (value: boolean) => {
       showModal = value
     }
 
