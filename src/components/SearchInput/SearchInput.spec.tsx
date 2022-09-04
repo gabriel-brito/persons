@@ -43,6 +43,10 @@ describe('Container', () => {
         padding-left: 8px;
       }
 
+      .c0:focus-visible {
+        outline: none;
+      }
+
       @media (max-width:600px) {
 
       }

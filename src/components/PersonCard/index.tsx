@@ -20,7 +20,7 @@ export default function PersonCard({
       <S.InfoWrapper>
         <S.Name>{name}</S.Name>
         <S.Company>
-          <BuildingsIcon /> {company}
+          <BuildingsIcon /> {company ? company : '-'}
         </S.Company>
       </S.InfoWrapper>
 

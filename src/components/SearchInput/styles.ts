@@ -58,4 +58,8 @@ export const Input = styled.input`
     background-position: -40px center;
     padding-left: 8px;
   }
+
+  &:focus-visible {
+    outline: none;
+  }
 `

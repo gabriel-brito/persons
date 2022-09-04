@@ -16,7 +16,7 @@ export const Name = styled.h3`
 `
 
 export const Phone = styled.span`
-  color: #64dd17;
+  color: #5cc257;
   font-size: 16px;
   font-weight: 600;
 `
@@ -49,8 +49,8 @@ export const InfoContent = styled.p`
   text-align: left;
 `
 
-export const Footer = styled.header`
-  background-color: #eaeaea;
+export const Footer = styled.footer`
+  background-color: #f2f2f2;
   border-bottom: 1px solid #d1d1d1;
 `
 

@@ -9,7 +9,7 @@ export const Modal = styled.div`
 `
 
 export const Header = styled.header`
-  background-color: #eaeaea;
+  background-color: #f2f2f2;
   border-bottom: 1px solid #d1d1d1;
 `
 
