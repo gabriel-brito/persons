@@ -4,7 +4,7 @@ import Debounce from 'lodash.debounce'
 import Layout from 'components/Layout'
 import Loader from 'components/Loader'
 
-import { getAllPersons, searchForPersons } from 'services/personServices'
+import { getAllPersons, searchForPersons } from 'services/persons'
 import { transformToListItem } from 'utils/persons'
 
 const SearchInput = lazy(() => import('components/SearchInput'))

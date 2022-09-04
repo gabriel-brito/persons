@@ -8,7 +8,7 @@ import Loader from 'components/Loader'
 
 import * as S from 'components/PeoplesList/styles'
 
-import { deletePerson } from 'services/personServices'
+import { deletePerson } from 'services/persons'
 
 type PeoplesListType = {
   persons?: any[]

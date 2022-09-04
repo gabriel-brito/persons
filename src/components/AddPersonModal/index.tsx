@@ -7,7 +7,7 @@ import Loader from 'components/Loader'
 
 import * as S from 'components/AddPersonModal/styles'
 
-import { AddPerson } from 'services/personServices'
+import { AddPerson } from 'services/persons'
 
 type AddPersonModalTypes = {
   showModal: boolean
