@@ -61,4 +61,23 @@ describe('BaseModal', () => {
 
     expect(baseModal).toBeNull()
   })
+
+  it('should have a footer inside the modal', () => {
+    render(
+      <BaseModal
+        showModal={true}
+        closeModal={() => {}}
+        title="Base modal title"
+        hasFooter
+        footerContent={<button aria-label="test-button">Test Button</button>}
+      >
+        <h1>Hello World</h1>
+      </BaseModal>
+    )
+
+    expect(screen.getByTestId('footer')).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /test-button/i })
+    ).toBeInTheDocument()
+  })
 })

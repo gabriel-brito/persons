@@ -30,19 +30,14 @@ export default function PersonModal({
       closeModal={closeModal}
       hasFooter
       footerContent={
-        <S.Footer>
-          <S.FooterWrapper>
-            <S.DeleteButton
-              aria-label="delete-person"
-              onClick={handleDeleteUser}
-            >
-              Delete
-            </S.DeleteButton>
-            <S.BaseButton aria-label="close-modal" onClick={handleCloseModal}>
-              Back
-            </S.BaseButton>
-          </S.FooterWrapper>
-        </S.Footer>
+        <>
+          <S.DeleteButton aria-label="delete-person" onClick={handleDeleteUser}>
+            Delete
+          </S.DeleteButton>
+          <S.BaseButton aria-label="close-modal" onClick={handleCloseModal}>
+            Back
+          </S.BaseButton>
+        </>
       }
     >
       <S.ProfileWrapper>

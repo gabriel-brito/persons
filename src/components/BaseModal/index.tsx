@@ -38,7 +38,11 @@ export default function BaseModal({
 
         <S.Content>{children}</S.Content>
 
-        {hasFooter && <>{footerContent}</>}
+        {hasFooter && (
+          <S.Footer data-testid="footer">
+            <S.FooterWrapper>{footerContent}</S.FooterWrapper>
+          </S.Footer>
+        )}
       </S.Modal>
     </Backdrop>
   ) : null

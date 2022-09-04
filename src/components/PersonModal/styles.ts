@@ -49,18 +49,6 @@ export const InfoContent = styled.p`
   text-align: left;
 `
 
-export const Footer = styled.footer`
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #d1d1d1;
-`
-
-export const FooterWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-`
-
 export const BaseButton = styled.button`
   background-color: white;
   border: 1px solid #d1d1d1;

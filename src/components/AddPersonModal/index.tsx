@@ -65,16 +65,14 @@ export default function AddPersonModal({
       title="Add a new person"
       hasFooter
       footerContent={
-        <S.Footer>
-          <S.FooterWrapper>
-            <S.SubmitButton aria-label="submit-button" onClick={submitForm}>
-              Submit
-            </S.SubmitButton>
-            <S.BaseButton aria-label="close-modal" onClick={closeModal}>
-              Back
-            </S.BaseButton>
-          </S.FooterWrapper>
-        </S.Footer>
+        <>
+          <S.SubmitButton aria-label="submit-button" onClick={submitForm}>
+            Submit
+          </S.SubmitButton>
+          <S.BaseButton aria-label="close-modal" onClick={closeModal}>
+            Back
+          </S.BaseButton>
+        </>
       }
     >
       <S.Wrapper>
