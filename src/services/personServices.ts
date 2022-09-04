@@ -33,6 +33,26 @@ export const searchForPersons = async (term: string) => {
   }
 }
 
+export const AddPerson = async (body: any) => {
+  try {
+    const response: any = await axiosConfig.post(
+      'persons',
+      {
+        ...body
+      },
+      {
+        params: {
+          api_token: API_KEY
+        }
+      }
+    )
+
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const deletePerson = async (id: number) => {
   try {
     const response: any = await axiosConfig.delete(`persons/${id}`, {
