@@ -1,4 +1,11 @@
-import { useState, useEffect, ChangeEvent, lazy, Suspense } from 'react'
+import {
+  ChangeEvent,
+  Suspense,
+  lazy,
+  useCallback,
+  useEffect,
+  useState
+} from 'react'
 import Debounce from 'lodash.debounce'
 
 import Layout from 'components/Layout'
@@ -14,27 +21,47 @@ export default function App() {
   const [persons, setPersons] = useState([])
   const [showLoader, setShowLoader] = useState(true)
   const [isFromFilter, SetIsFromFilter] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [start, setStart] = useState(0)
+  const [hasNextPage, setHasNextPage] = useState(false)
 
-  const generalRequest = async () => {
+  const handleNextPage = () => {
+    const newStart = start + 10
+    setCurrentPage(currentPage + 1)
+    setStart(newStart)
+    generalRequest(newStart)
+  }
+
+  const handlePrevPage = () => {
+    const newStart = start - 10
+    setCurrentPage(currentPage - 1)
+    setStart(newStart)
+    generalRequest(newStart)
+  }
+
+  const generalRequest = useCallback(async (_start = 0) => {
     setShowLoader(true)
     SetIsFromFilter(false)
-    const response = await getAllPersons()
+    const response = await getAllPersons(_start)
 
     setPersons(response.data)
+    setHasNextPage(
+      response['additional_data'].pagination['more_items_in_collection']
+    )
     setShowLoader(false)
-  }
+  }, [])
 
   const filterByTyping = async (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.trim()
 
     if (!value) {
-      generalRequest()
+      generalRequest(start)
 
       return
     }
 
     if (value.length < 2) {
-      generalRequest()
+      generalRequest(start)
 
       return
     }
@@ -52,7 +79,7 @@ export default function App() {
 
   useEffect(() => {
     generalRequest()
-  }, [])
+  }, [generalRequest])
 
   return (
     <Layout>
@@ -62,6 +89,12 @@ export default function App() {
           generalRequest={generalRequest}
           persons={persons}
           isFromFilter={isFromFilter}
+          paginationParams={{
+            currentPage,
+            handleNextPage,
+            handlePrevPage,
+            hasNextPage
+          }}
         />
       </Suspense>
 

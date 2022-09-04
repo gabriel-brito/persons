@@ -1,19 +1,23 @@
-import { useState } from 'react'
+import { useState, lazy } from 'react'
 
 import Container from 'components/Container'
 import PersonCard from 'components/PersonCard'
-import PersonModal from 'components/PersonModal'
-import MessageModal from 'components/MessageModal'
 import Loader from 'components/Loader'
 
 import * as S from 'components/PeoplesList/styles'
 
+import { PaginationTypes } from 'components/Pagination'
 import { deletePerson } from 'services/persons'
+
+const PersonModal = lazy(() => import('components/PersonModal'))
+const MessageModal = lazy(() => import('components/MessageModal'))
+const Pagination = lazy(() => import('components/Pagination'))
 
 type PeoplesListType = {
   persons?: any[]
   generalRequest: () => Promise<void>
   isFromFilter: boolean
+  paginationParams: PaginationTypes
 }
 
 export type SelectedUserTypes = {
@@ -28,6 +32,7 @@ export type SelectedUserTypes = {
 export default function PeoplesList({
   generalRequest,
   isFromFilter = false,
+  paginationParams,
   persons = []
 }: PeoplesListType) {
   const [selectedUser, setSelectedUser] = useState<SelectedUserTypes | {}>({})
@@ -110,6 +115,8 @@ export default function PeoplesList({
             })
           )}
         </S.List>
+
+        {persons.length === 10 && <Pagination {...paginationParams} />}
 
         <PersonModal
           showModal={openModal}
