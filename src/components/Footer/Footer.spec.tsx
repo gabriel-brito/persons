@@ -8,7 +8,7 @@ describe('Footer', () => {
 
     expect(screen.getByTestId('footer')).toMatchInlineSnapshot(`
       .c0 {
-        background-color: #d2d2d2;
+        background-color: var(--bgGrey);
         display: block;
         height: 72px;
         margin-top: 32px;

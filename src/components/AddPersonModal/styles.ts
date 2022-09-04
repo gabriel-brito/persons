@@ -25,7 +25,7 @@ export const Input = styled.input`
 
   &:focus-visible {
     outline: none;
-    border-bottom: 2px solid #2a3647;
+    border-bottom: 2px solid var(--mainColor);
   }
 `
 
@@ -38,18 +38,18 @@ export const PhoneInput = styled(InputMask)`
 
   &:focus-visible {
     outline: none;
-    border-bottom: 2px solid #2a3647;
+    border-bottom: 2px solid var(--mainColor);
   }
 `
 
 export const HelperText = styled.span`
-  color: #ed6a6d;
+  color: var(--red);
   font-size: 12px;
 `
 
 export const BaseButton = styled.button`
   background-color: white;
-  border: 1px solid #d1d1d1;
+  border: 1px solid var(--borderColor);
   cursor: pointer;
   font-weight: 600;
   min-width: 85px;
@@ -58,6 +58,6 @@ export const BaseButton = styled.button`
 
 export const SubmitButton = styled(BaseButton)`
   border: none;
-  background-color: #5cc257;
+  background-color: var(--green);
   color: white;
 `

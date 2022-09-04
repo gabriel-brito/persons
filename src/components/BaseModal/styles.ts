@@ -9,8 +9,8 @@ export const Modal = styled.div`
 `
 
 export const Header = styled.header`
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #d1d1d1;
+  background-color: var(--bgGrey);
+  border-bottom: 1px solid var(--borderColor);
 `
 
 export const HeaderWrapper = styled.div`
@@ -41,8 +41,8 @@ export const Content = styled.div`
   padding: 20px;
 `
 export const Footer = styled.footer`
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #d1d1d1;
+  background-color: var(--bgGrey);
+  border-bottom: 1px solid var(--borderColor);
 `
 
 export const FooterWrapper = styled.div`

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ProfileWrapper = styled.div`
   align-items: center;
-  border-bottom: 1px solid #d1d1d1;
+  border-bottom: 1px solid var(--borderColor);
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
@@ -16,7 +16,7 @@ export const Name = styled.h3`
 `
 
 export const Phone = styled.span`
-  color: #5cc257;
+  color: var(--green);
   font-size: 16px;
   font-weight: 600;
 `
@@ -45,13 +45,13 @@ export const InfoTitle = styled.p`
 `
 
 export const InfoContent = styled.p`
-  color: #656e7a;
+  color: var(--textGrey);
   text-align: left;
 `
 
 export const BaseButton = styled.button`
   background-color: white;
-  border: 1px solid #d1d1d1;
+  border: 1px solid var(--borderColor);
   cursor: pointer;
   font-weight: 600;
   min-width: 85px;
@@ -59,6 +59,6 @@ export const BaseButton = styled.button`
 `
 
 export const DeleteButton = styled(BaseButton)`
-  border-color: #ed6a6d;
-  color: #ed6a6d;
+  border-color: var(--red);
+  color: var(--red);
 `

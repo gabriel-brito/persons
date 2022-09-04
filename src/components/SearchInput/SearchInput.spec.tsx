@@ -27,10 +27,10 @@ describe('Container', () => {
         background-position: 8px center;
         background-repeat: no-repeat;
         background-size: 20px;
-        background-color: #eaeaea;
+        background-color: var(--borderColor);
         border-radius: 16px;
         border: none;
-        color: #656e7a;
+        color: var(--textGrey);
         padding: 8px;
         padding-left: 40px;
         width: 193px;

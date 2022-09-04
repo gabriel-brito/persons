@@ -15,7 +15,7 @@ export const Avatar = styled.img`
 
 export const AvatarPlaceholder = styled.span`
   align-items: center;
-  background-color: aliceblue;
+  background-color: var(--darkenAliceBlue);
   color: blue;
   display: flex;
   font-size: 1.3rem;

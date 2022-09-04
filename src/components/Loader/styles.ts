@@ -9,7 +9,7 @@ export const Loader = styled.div`
   animation: ${spin} 2s linear infinite;
   border-radius: 50%;
   border: 5px solid white;
-  border-bottom-color: #3498db;
+  border-bottom-color: transparent;
   height: 60px;
   width: 60px;
 `

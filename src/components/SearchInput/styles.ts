@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
 export const Wrapper = styled.section`
-  border-bottom: 1px solid #d1d1d1;
+  border-bottom: 1px solid var(--borderColor);
   padding: 20px 0;
   width: 100%;
 `
@@ -45,10 +45,10 @@ export const Input = styled.input`
   background-position: 8px center;
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: #eaeaea;
+  background-color: var(--borderColor);
   border-radius: 16px;
   border: none;
-  color: #656e7a;
+  color: var(--textGrey);
   padding: 8px;
   padding-left: 40px;
   width: 193px;

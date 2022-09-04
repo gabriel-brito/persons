@@ -23,7 +23,7 @@ describe('Header', () => {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        background-color: #2a3647;
+        background-color: var(--mainColor);
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;

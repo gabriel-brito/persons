@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const PersonCard = styled.div`
   align-items: center;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--borderColor);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@ export const Name = styled.h2`
 
 export const Company = styled.h3`
   align-items: center;
-  color: #656e7a;
+  color: var(--textGrey);
   display: flex;
   font-size: 0.9rem;
   font-weight: 400;
