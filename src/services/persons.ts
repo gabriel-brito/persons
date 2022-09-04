@@ -1,10 +1,11 @@
 import { axiosConfig } from 'utils/api'
 import { API_KEY } from 'utils/constants'
 
-export const getAllPersons = async () => {
+export const getAllPersons = async (start = 0) => {
   try {
     const response: any = await axiosConfig.get('persons', {
       params: {
+        start,
         api_token: API_KEY,
         limit: 10
       }
