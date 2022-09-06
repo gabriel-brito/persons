@@ -45,9 +45,9 @@ export const Input = styled.input`
   background-position: 8px center;
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: var(--borderColor);
+  background-color: var(--bgGrey);
   border-radius: 16px;
-  border: none;
+  border: 1px solid var(--borderColor);
   color: var(--textGrey);
   padding: 8px;
   padding-left: 40px;
